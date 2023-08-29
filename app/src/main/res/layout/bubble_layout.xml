@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animateLayoutChanges="true" >
+    <data>
+        <variable name="handler" type="com.rcl.androidstreamcontrol.ui.BubbleHandler" />
+        <variable name="View" type="android.view.View" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/bubble_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_bubble"
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</layout>

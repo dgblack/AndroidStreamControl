@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme Colours. -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Button State Colours. -->
+    <color name="main_button_background">@color/colorPrimary</color>
+    <color name="main_button_launch_permissions">#606060</color>
+    <color name="main_button_await_start">@color/white</color>
+    <color name="main_button_await_peer">#FFBF00</color>
+    <color name="main_button_bound">#00D100</color>
+
+    <color name="bubble_button_background">#959595</color>
+    <color name="bubble_button_await_peer_tint">@color/white</color>
+    <color name="bubble_button_peer_connected_tint">@color/white</color>
+
+    <!-- Trash Bar Gradient Colours. -->
+    <color name="trash_bar_start_color">#BF606060</color>
+    <color name="trash_bar_center_color">#99606060</color>
+    <color name="trash_bar_end_color">#00606060</color>
+    <color name="trash_bar_on_entered">#D10000</color>
+
+</resources>

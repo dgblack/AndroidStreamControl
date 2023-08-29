@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">RemoteAndroid</string>
+    <string name="main_page_title">@string/app_name</string>
+    <string name="settings_page_title">Settings</string>
+    <string name="instructions_page_title">Instructions</string>
+
+    <string name="start_follower">Follower</string>
+    <string name="start_expert">Expert</string>
+
+    <string name="startButton">Start Service</string>
+    <string name="resumeButton">Resume Service</string>
+    <string name="pauseButton">Pause Service</string>
+    <string name="stopButton">Stop Service</string>
+
+    <string name="main_activity">RemoteAndroid</string>
+    <string name="complete_activity">CompleteActivity</string>
+    <string name="follower_activity">FollowerActivity</string>
+    <string name="expert_activity">ExpertActivity</string>
+
+    <string name="bubble_service">BubbleService</string>
+    <string name="accessibility_hint">This app uses accessibility service to simulate user interface events. The accessibility permissions screen will now open. Please grant accessibility permissions to the app.</string>
+    <string name="overlays_hint">This app uses draw overlays to provide User Interface controls for the app service. The draw overlays screen will now open. Please grant permissions to the app.</string>
+    <string name="end_service_hint">Are you sure you want to end this service?</string>
+
+
+    <string name="continue_button">Continue</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="end_service_button">End Service</string>
+
+    <string name="permission_type">permission_type</string>
+
+    <string name="foreground_bubble_shortcut_short_label">foreground-bubble</string>
+    <string name="foreground_bubble_shortcut_long_label">foreground-bubble</string>
+    <string name="foreground_bubble_shortcut_disabled_message">foreground-bubble</string>
+
+    <string name="UPDATE_PEER_STATUS">update_peer_connection_status</string>
+    <string name="UPDATE_APP_STATUS">update_app_status</string>
+</resources>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/app_state_button"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        android:foreground="@drawable/ic_appstate_foreground"
+        app:layout_anchor="@+id/linearLayout"
+        app:layout_anchorGravity="center" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="0"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/startService"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginTop="16dp"
+                android:text="@string/startButton" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/servicePaused"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/startService"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:id="@+id/isPausedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service is paused" />
+
+            <Button
+                android:id="@+id/resumeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/isPausedText"
+                android:layout_marginTop="16dp"
+                android:text="@string/resumeButton" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/serviceRunning"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/servicePaused"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:id="@+id/isRunningText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service is running!!!" />
+
+            <Button
+                android:id="@+id/pauseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/isRunningText"
+                android:layout_marginTop="16dp"
+                android:text="@string/pauseButton" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/stopService"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/serviceRunning"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <Button
+                android:id="@+id/stopButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/stopButton" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/testCursor"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/ic_launcher_background" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

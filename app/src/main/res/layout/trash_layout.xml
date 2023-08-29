@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:animateLayoutChanges="true" >
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+
+        android:id="@+id/trash_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_trash_bar"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/trash_icon_1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/background_trash_icon"
+            android:src="@drawable/baseline_delete_24"
+            android:layout_gravity="center"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

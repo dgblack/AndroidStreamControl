@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="foreground-bubble-shortcut-id"
+        android:enabled="true"
+        android:icon="@drawable/circular_button"
+        android:shortcutShortLabel="@string/foreground_bubble_shortcut_short_label"
+        android:shortcutLongLabel="@string/foreground_bubble_shortcut_long_label" >
+        <intent
+            android:action="android.intent.action."
+            android:targetPackage="com.rcl.androidstreamcontrol"
+            android:targetClass="com.rcl.androidstreamcontrol.MainActivity" />
+
+        <categories android:name="android.shortcut.conversation" />
+        <capability-binding android:key="actions.intent.CREATE_MESSAGE" />
+
+    </shortcut>
+</shortcuts>
