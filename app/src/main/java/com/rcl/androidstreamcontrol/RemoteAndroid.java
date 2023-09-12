@@ -45,9 +45,9 @@ import com.rcl.androidstreamcontrol.service.FollowerService;
 import com.rcl.androidstreamcontrol.model.ActivityStateHolder;
 import com.rcl.androidstreamcontrol.utils.UtilsPermissions;
 
-public class MainActivity extends AppCompatActivity {
+public class RemoteAndroid extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "RemoteAndroid";
     private ActivityMainBinding binding;
     public static final String ON_PEER_CONN = "on-peer-connect";
     public static final String ON_PEER_DISCONN = "on-peer-disconnect";
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             mBoundService = binder.getService();
             mIsBound = true;
 
-            binder.getNotifyEndService().observe(MainActivity.this, serviceStatus -> {
+            binder.getNotifyEndService().observe(RemoteAndroid.this, serviceStatus -> {
                 Log.d("serviceStatus", "onChanged");
                 if (serviceStatus.equals(null)) {
                     // DO NOTHING

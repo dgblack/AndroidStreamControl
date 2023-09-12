@@ -5,5 +5,5 @@
     android:accessibilityFlags="flagReportViewIds|flagIncludeNotImportantViews"
     android:canRetrieveWindowContent="false"
     android:canPerformGestures="true"
-    android:settingsActivity="MainActivity"
+    android:settingsActivity="RemoteAndroid"
     />

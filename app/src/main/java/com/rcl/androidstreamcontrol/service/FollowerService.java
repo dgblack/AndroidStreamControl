@@ -1,7 +1,7 @@
 package com.rcl.androidstreamcontrol.service;
 
 import static android.view.View.GONE;
-import static com.rcl.androidstreamcontrol.MainActivity.mWindow;
+import static com.rcl.androidstreamcontrol.RemoteAndroid.mWindow;
 import static com.rcl.androidstreamcontrol.model.ServiceStateHolder.SERVICE_NOT_READY;
 import static com.rcl.androidstreamcontrol.model.ServiceStateHolder.SERVICE_READY;
 import static com.rcl.androidstreamcontrol.model.ServiceStateHolder.SERVICE_RUNNING;

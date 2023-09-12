@@ -27,7 +27,7 @@
         android:launchMode="singleTop"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.rcl.androidstreamcontrol.MainActivity"
+            android:name="com.rcl.androidstreamcontrol.RemoteAndroid"
             android:label="@string/main_activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"

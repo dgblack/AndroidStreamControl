@@ -9,7 +9,7 @@
         <intent
             android:action="android.intent.action."
             android:targetPackage="com.rcl.androidstreamcontrol"
-            android:targetClass="com.rcl.androidstreamcontrol.MainActivity" />
+            android:targetClass="com.rcl.androidstreamcontrol.RemoteAndroid" />
 
         <categories android:name="android.shortcut.conversation" />
         <capability-binding android:key="actions.intent.CREATE_MESSAGE" />

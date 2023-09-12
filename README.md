@@ -56,7 +56,7 @@ Primarily tested on an Android 13 device (API level 33). Should be compatible wi
 <br><br>
 WebRTC is slow, particularly with devices with larger screens. 
 Decreasing the resolution of the video frame sent over WebRTC will reduce lag. 
-You can do this by setting PROJECTED_PIXELS_HEIGHT and PROJECTED_PIXELS_WIDTH in MainActivity.java. 
+You can do this by setting PROJECTED_PIXELS_HEIGHT and PROJECTED_PIXELS_WIDTH in RemoteAndroid.java. 
 <br><br>
 The sending of video frames is triggered by screen pixels changing frame-to-frame.
 We have found that screen sharing where the local device screen pixels are changing a lot frame to frame 

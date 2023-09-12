@@ -12,7 +12,7 @@ public abstract class MyConstants {
     // Video track properties
     public static final String VIDEO_TRACK_ID = "ARDAMSv0";
 
-    // These are set using WindowManager from MainActivity
+    // These are set using WindowManager from RemoteAndroid
     public static int APP_SCREEN_PIXELS_HEIGHT;
     public static int APP_SCREEN_PIXELS_WIDTH;
     public static int FULL_SCREEN_PIXELS_HEIGHT;
