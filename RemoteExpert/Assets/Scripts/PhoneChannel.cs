@@ -90,7 +90,7 @@ public class PhoneChannel : MonoBehaviour
         byte[] sy = Float2Bytes(start.y);
         byte[] ex = Float2Bytes(end.x);
         byte[] ey = Float2Bytes(end.y);
-        byte[] d = Float2Bytes(duration);
+        byte[] d = Int2Bytes(duration);
 
         for (int i = 0; i < 2; i++)
         {
@@ -182,7 +182,14 @@ public class PhoneChannel : MonoBehaviour
     #region Helper Methods
     private byte[] Float2Bytes(float val)
     {
-        int num = (int)(val * 1000);
+        // Only for val between 0 and 1
+        return Int2Bytes((int)(val * 65535));
+        
+    }
+
+    private byte[] Int2Bytes(int val)
+    {
+        // only for val <= 65535
         byte[] b = new byte[2];
         b[0] = (byte)((num & 0xFF00) >> 8);
         b[1] = (byte)(num & 0x00FF);

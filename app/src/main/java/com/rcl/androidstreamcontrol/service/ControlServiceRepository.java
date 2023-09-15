@@ -23,7 +23,7 @@ public class ControlServiceRepository {
     float lastEndY = 0;
     boolean serviceStarted = false;
     ControlService gestureService;
-    public static final float rng = 1000.f;
+    public static final float rng = 65535.f;
 
     public ControlServiceRepository(Context context) {
         this.context = context;
