@@ -7,13 +7,8 @@ import java.nio.charset.StandardCharsets;
 public class Utils {
 
 
-    public static Integer twoBytesToInt(byte[] bytes) {
-
-        if (bytes == null) {
-            return null;
-        }
-
-        return ((bytes[0] & 0xFF) << 8) | ((bytes[1] & 0xFF));
+    public static Integer twoBytesToInt(byte byte0, byte byte1) {
+        return ((byte0 & 0xFF) << 8) | ((byte1 & 0xFF));
     }
 
     public static byte[] intToTwoBytes(Integer intVal) {

@@ -64,8 +64,7 @@ async def handler(websocket):
                 del clients[clientKey]
 
 async def setUpServer():
-        #port = int(os.environ.get("PORT","8001"))
-        async with websockets.serve(handler,"10.0.0.8",8001):
+        async with websockets.serve(handler,"137.82.56.249",8001):
                 print("Started server")
                 try:
                     await asyncio.Future()

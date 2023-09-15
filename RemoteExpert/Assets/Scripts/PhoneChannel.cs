@@ -21,9 +21,17 @@ public class PhoneChannel : MonoBehaviour
     public GameObject startInd;
     public GameObject endInd;
 
+    public enum GestureType
+    {
+        WillContinue,
+        Pinch,
+        Normal
+    }
+
     void Start()
     {
-        cc.callback += OnGestureCallback;
+        cc.gestureCallback += OnGestureCallback;
+        cc.pinchCallback += OnPinchCallback;
 
         waitingForChannel = false;
         hasChannel = false;
@@ -74,8 +82,7 @@ public class PhoneChannel : MonoBehaviour
             Debug.Log("Creating Data Channel: " + channelName);
         }
     }
-
-    public void SendMessage(Vector2 start, Vector2 end, float duration)
+    public void SendMessage(Vector2 start, Vector2 end, float duration, GestureType gt)
     {
         byte[] bmsg = new byte[11];
 
@@ -93,8 +100,12 @@ public class PhoneChannel : MonoBehaviour
             bmsg[i + 6] = ey[i];
             bmsg[i + 8] = d[i];
         }
-        
-        bmsg[10] = 0x00;
+
+        if (gt == GestureType.WillContinue)
+            bmsg[10] = 0x01;
+        else if (gt == GestureType.Pinch)
+            bmsg[10] = 0x02;
+        else bmsg[10] = 0x00;
 
         if (hasChannel && channelOpen)
         {
@@ -102,37 +113,38 @@ public class PhoneChannel : MonoBehaviour
         }
     }
 
+
     #region Callbacks
-    public void OnGestureCallback(Vector2 startPos, Vector2 endPos, float duration)
+    public void OnGestureCallback(Vector2 startPos, Vector2 endPos, float duration, GestureType willContinue)
     {
-        Debug.Log("Start: " + startPos.x.ToString("N") + ", " + startPos.y.ToString("N"));
-        Debug.Log("End: " + endPos.x.ToString("N") + ", " + endPos.y.ToString("N"));
-        Debug.Log("Duration: " + duration.ToString("N"));
+        //Debug.Log("Start: " + startPos.x.ToString("N") + ", " + startPos.y.ToString("N"));
+        //Debug.Log("End: " + endPos.x.ToString("N") + ", " + endPos.y.ToString("N"));
+        //Debug.Log("Duration: " + duration.ToString("N"));
 
         Vector3 p = startInd.transform.position;
-        Vector3 v = endInd.transform.position;
-
-        //p.x = startPos.x * transform.localScale.x + transform.position.x - transform.localScale.x / 2;
-        //p.y = startPos.y * transform.localScale.y + transform.position.y - transform.localScale.y / 2;
-        //v.x = endPos.x * transform.localScale.x + transform.position.x - transform.localScale.x / 2;
-        //v.y = endPos.y * transform.localScale.y + transform.position.y - transform.localScale.y / 2;
-
-        for (int i = 0; i < 2; i++)
-        {
-            // Set positions of markers for visual feedback
-            p[i] = startPos[i];
-            v[i] = endPos[i];
-
-            // Transform to relative screen coordinates (origin at centre of screen)
-            startPos[i] = (startPos[i] - transform.position[i] + transform.localScale[i] / 2) / transform.localScale[i];
-            endPos[i] = (endPos[i] - transform.position[i] + transform.localScale[i] / 2) / transform.localScale[i];
-        }
-
-        // Set positions of markers for visual feedback
+        p.x = startPos.x * transform.localScale.x + transform.position.x - transform.localScale.x / 2;
+        p.y = startPos.y * transform.localScale.y + transform.position.y - transform.localScale.y / 2;
         startInd.transform.position = p;
+
+        Vector3 v = endInd.transform.position;
+        v.x = endPos.x * transform.localScale.x + transform.position.x - transform.localScale.x / 2;
+        v.y = endPos.y * transform.localScale.y + transform.position.y - transform.localScale.y / 2;
         endInd.transform.position = v;
 
-        SendMessage(startPos, endPos, duration);
+        SendMessage(startPos, endPos, duration, willContinue);
+    }
+
+    public void OnPinchCallback(Vector2 startPos, Vector2 dir, float dt, GestureType pinch)
+    {
+        // a and pinch are ignored
+
+        Vector3 p = startInd.transform.position;
+        p.x = startPos.x * transform.localScale.x + transform.position.x - transform.localScale.x / 2;
+        p.y = startPos.y * transform.localScale.y + transform.position.y - transform.localScale.y / 2;
+        startInd.transform.position = p;
+        endInd.transform.position = p;
+
+        SendMessage(startPos, dir, dt, GestureType.Pinch);
     }
     private void OnDataChannelAdded(DataChannel addedChannel)
     {
