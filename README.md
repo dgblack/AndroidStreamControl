@@ -8,7 +8,7 @@ The Main Button colour signifies the state the app is currently in.
 * Green: permissions have been granted, streaming service started
 
 The Bubble Button symbol signifies the state that the service is in and the state of the peer. The bubble button does not appear until the streaming service has been started by the user. 
-The Bubble Button is a window overlay and will be visible as long as the service is running.
+The Bubble Button is a window overlay and will be visible as long as the service is running, even if you exit the app itself.
 * Circle-Backslash: peer is not connected to Websocket
 * Play: peer is connected to socket, and RTC communication has been established, video is not currently streaming
 * Pause: peer is connected to socket, and RTC communication has been established, video is currently streaming to peer
@@ -38,7 +38,7 @@ Image descriptions from left to right:
 * You will receive a dialogue ensuring that you want to end the service. This will destroy the peer connection and disconnect from websocket
 
 ### Main Components Used in App
-* WebRTC: com.dafruits:webrtc has the best video streaming (least amount of streaming and lag). We also tried: io.github.webrtc-sdk:android and io.getstream:stream-webrtc-android.
+* WebRTC: com.dafruits:webrtc has the best video streaming (least amount of lag). We also tried: io.github.webrtc-sdk:android and io.getstream:stream-webrtc-android.
 * MediaProjection: allows us to capture device screen. Works in conjunction with WebRTC ScreenCapturer class.
 * Android Accessibility Service: The ControlService element. Allows us to dispatch simple gestures such as clicks and drags from remote device to local device.
 * Foreground Service: most app functionality works within the foreground service. It allows us to run code even outside of the app.
@@ -54,14 +54,15 @@ To change the address of the signaling server, change it in MyConstants.java (ap
 ### Usage Suggestions
 Primarily tested on an Android 13 device (API level 33). Should be compatible with devices that are API levels 29-33.
 <br><br>
-WebRTC is slow, particularly with devices with larger screens. 
+The sending of video frames is triggered by screen pixels changing frame-to-frame. 
+Thus, WebRTC is relatively slow if the whole screen is changing, particularly with devices with larger screens. 
 Decreasing the resolution of the video frame sent over WebRTC will reduce lag. 
 You can do this by setting PROJECTED_PIXELS_HEIGHT and PROJECTED_PIXELS_WIDTH in RemoteAndroid.java. 
+Also, it is possible for the Android to start screen sharing only after it has already navigated to the app/screen that is to be shared with the remote peer.
+This is ennabled by the bubble button.
 <br><br>
-The sending of video frames is triggered by screen pixels changing frame-to-frame.
-We have found that screen sharing where the local device screen pixels are changing a lot frame to frame 
-(switching between screens or apps) causes temporary screen freezes to the remote device viewing their screen.
-We recommend that the local device does not start screen sharing until they have already navigated to the app/screen that they wish to share with the remote peer.
+Currently, it is possible to click, swipe, and drag in a straight line. Linking strokes into a continued gesture which curves or changes direction has not worked well for us. It is also possible to zoom in/out using pinch gestures by scrolling the mouse wheel on the remote side. This works reasonably well but is quite finnicky and should be improved if possible.
+
 <br><br>
 
 ### Potential Future Improvements
